@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Ternurines - Carrusel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- referencia a estilosgaleria-->
+
+    <link rel="stylesheet" href="css/estilosgaleria.css">
+</head>
+<body>
+
+<!-- ========================================================= -->
+<!-- ===================== Navbar ============================ -->
+<!-- ========================================================= -->
+
+<div class="navbar-contenedor">
+    <p class="title">Venta de Ternurines</p>
+    <div class="navbar">
+        <a href="index.html">Inicio</a>
+        <a class="activo" href="galeria.html">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+       </div>
+  </div>
+<br><br><br>
+
+<!-- ========================================================= -->
+<!-- ===================== Carrousell ======================== -->
+<!-- ========================================================= -->
+
+    <div class="carrusel-contenedor">
+
+    <!-- Imagen principal-->
+
+        <img id="imagenCarrusel" src="https://www.sdpnoticias.com/resizer/v2/FC57RNOHJZDHXCQF7ZADWT34F4.jpeg?smart=true&auth=bc1a4c82fb425d7adc012b978e104f7a72ee6118e01377fdb513e1e21139f863&width=640&height=360" alt="Ternurín">
+    </div>
+
+    <!-- Imagenes web con js -->
+
+    <script>
+        const imagenes = [
+            "https://www.sdpnoticias.com/resizer/v2/FC57RNOHJZDHXCQF7ZADWT34F4.jpeg?smart=true&auth=bc1a4c82fb425d7adc012b978e104f7a72ee6118e01377fdb513e1e21139f863&width=640&height=360",
+            "https://www.cronista.com/resizer/v2/PWEQCUKMYFHGBNR7H4NLXWYY44.jpg?auth=3c4d42916212d664cd78909d6ab2cdf7fb5c6684dec9474c9fa664e936fef561&height=450&width=800&quality=70&smart=true",
+            "https://phantom-marca-mx.unidadeditorial.es/ca37a806e4584f40e90b1ef11b7b3a6f/resize/828/f/jpg/mx/assets/multimedia/imagenes/2024/03/18/17107980157153.jpg",
+            "https://media.timeout.com/images/106124682/750/422/image.jpg",
+            "https://assets.laprensagrafica.com/__export/1727042555442/sites/prensagrafica/img/2024/09/22/ternurines.png_554688467.png"
+        ];
+
+        let indice = 0;
+        const imgCarrusel = document.getElementById("imagenCarrusel");
+
+        function cambiarImagen() {
+            indice = (indice + 1) % imagenes.length;
+            imgCarrusel.src = imagenes[indice];
+        }
+
+        setInterval(cambiarImagen, 2000);
+    </script>
+
+    <!-- Texto descrip-->
+
+<div class="descripcion-ternurin">
+    🐾 <strong>¿Qué es un Ternurín?</strong> 💖✨<br><br>
+    Los Ternurines son pequeñas criaturas adorables creadas para llenar de ternura y alegría nuestros días. 🥰 Con sus ojitos brillantes y su carita redondita, transmiten amor y felicidad a quienes los rodean. Cada Ternurín tiene una personalidad única: algunos son juguetones y traviesos 🐰, mientras que otros son calmados y les encanta acurrucarse y recibir mimos 💕. <br><br>
+    Lo más especial de los Ternurines es que, aunque sean imaginarios, su ternura se siente real. 🌸 Basta con mirarlos para sonreír, y su energía positiva nos recuerda la importancia de la empatía y el cariño. Siempre curiosos y aventureros, exploran todo a su alrededor con ojos llenos de ilusión 👀✨. <br><br>
+    Adoptar un Ternurín, aunque sea solo en nuestra imaginación, es abrazar la dulzura, la alegría y la diversión en la vida. 🐾💖 Nos enseñan que siempre hay espacio para sonreír, disfrutar de los pequeños momentos y llenar nuestro corazón de amor y ternura. 🌈💞
+</div>
+</body>
+</html>
