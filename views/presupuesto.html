@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Ternurines - Carrusel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- referencia a estilospresupuesto-->
+    <link rel="stylesheet" href="../css/estilospresupuesto.css">
+</head>
+<body>
+
+<!-- ========================================================= -->
+<!-- ===================== Navbar ============================ -->
+<!-- ========================================================= -->
+
+<div class="navbar-contenedor">
+    <p class="title">Venta de Ternurines</p>
+    <div class="navbar">
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a class="activo" href="presupuesto.html">Presupuesto</a>
+        <a href="contacto.html">Contacto</a>
+       </div>
+  </div>
+
+<h2>Pedir presupuesto</h2>
+
+<!-- ========================================================= -->
+<!-- ===================== Formularios ======================= -->
+<!-- ========================================================= -->
+
+<form id="formPresupuesto">
+
+<h3>Datos de contacto</h3>
+
+<!-- Input numeros y letras-->
+
+<label>Nombre:
+    <input type="text" id="nombre" required maxlength="15" placeholder="Ingresa tu nombre">
+</label>
+
+<label>Apellidos:
+    <input type="text" id="apellidos" required maxlength="40" placeholder="Ingresa tus apellidos">
+</label>
+
+<label>Teléfono:
+    <input type="tel" id="telefono" required maxlength="9" placeholder="Ingresa tu número">
+</label>
+
+<!-- Input email-->
+
+<label>Email:
+    <input type="email" id="email" required placeholder="Ingresa tu email">
+</label>
+
+<h3>Opciones del presupuesto</h3>
+
+<!-- Desplegable de opciones-->
+
+<label>Producto:
+<select id="producto">
+    <option value="20">Ternurín clásico - 20€</option>
+    <option value="35">Ternurín gigante - 35€</option>
+    <option value="50">Ternurín deluxe - 50€</option>
+</select>
+</label>
+
+<!-- Plazo suma de dias-->
+
+<label>Plazo en días:
+    <input type="number" id="plazo" min="1" max="7" value="5">
+</label>
+
+<h4>Extras:</h4>
+
+<!-- Checkbox-->
+
+<label><input type="checkbox" class="extra" value="5"> Caja regalo (+5€)</label>
+<label><input type="checkbox" class="extra" value="10"> Tarjeta personalizada (+10€)</label>
+<label><input type="checkbox" class="extra" value="7"> Envío premium (+7€)</label>
+
+<h3>Presupuesto final:</h3>
+
+<!-- Suma total-->
+
+<input type="text" id="total" readonly value="0 €">
+<br><br>
+<label>
+    <input type="checkbox" id="condiciones"> Acepto las condiciones
+</label>
+
+<!-- Enviar y reset-->
+
+<button type="submit">Enviar</button>
+<button type="reset">Reiniciar</button>
+</form>
+
+<!-- ========================================================= -->
+<!-- ===================== Javascript ======================== -->
+<!-- ========================================================= -->
+
+<script>
+document.getElementById("telefono").addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, "").slice(0, 9);
+});
+
+const plazo = document.getElementById("plazo");
+plazo.addEventListener("input", function () {
+    if (this.value === "" || this.value < 1) this.value = 1;
+    if (this.value > 7) this.value = 7;
+});
+
+function calcularTotal() {
+    let total = parseInt(document.getElementById("producto").value);
+
+    document.querySelectorAll(".extra:checked").forEach(extra => {
+        total += parseInt(extra.value);
+    });
+
+    document.getElementById("total").value = total + " €";
+}
+
+document.getElementById("producto").addEventListener("change", calcularTotal);
+document.querySelectorAll(".extra").forEach(e => e.addEventListener("change", calcularTotal));
+document.getElementById("plazo").addEventListener("input", calcularTotal);
+document.getElementById("formPresupuesto").addEventListener("submit", function(e) {
+
+    const nombreValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{1,15}$/;
+    const apellidosValido = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{1,40}$/;
+    const telefonoValido = /^[0-9]{9}$/;
+    const emailValido = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    let errores = [];
+
+    if (!nombreValido.test(nombre.value.trim())) {
+        errores.push("El nombre solo puede contener letras y máximo 15 caracteres.");
+    }
+
+    if (!apellidosValido.test(apellidos.value.trim())) {
+        errores.push("Los apellidos solo pueden contener letras y máximo 40 caracteres.");
+    }
+
+    if (!telefonoValido.test(telefono.value.trim())) {
+        errores.push("El teléfono debe tener exactamente 9 dígitos.");
+    }
+
+    if (!emailValido.test(email.value.trim())) {
+        errores.push("El email no tiene un formato válido.");
+    }
+
+    if (!condiciones.checked) {
+        errores.push("Debes aceptar las condiciones.");
+    }
+
+    if (errores.length > 0) {
+        e.preventDefault();
+        alert(errores.join("\n"));
+    }
+});
+calcularTotal();
+</script>
+ <!-- FOOTER -->
+<footer class="footer">
+    <div class="social-icons">
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        <p>@ventadeternurines</p>
+      </div>
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        <p>123 456 789</p>
+      </div>
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+        <p>ventadeternurines@gmail.com</p>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

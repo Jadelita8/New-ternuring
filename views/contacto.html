@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Ternurines</title>
+    <link rel="stylesheet" href="../css/estiloscontacto.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+</head>
+<body>
+
+<header>
+    <h1 class="logo">Ternurines</h1>
+    <nav class="navbar">
+        <a href="../index.html">Inicio</a>
+        <a href="galeria.html">Galería</a>
+        <a href="presupuesto.html">Presupuesto</a>
+        <a class="activo" href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<h2>Contacto y ubicación</h2>
+
+<div id="mapa"></div>
+
+<p>Dirección: Calle Ternurines 123, Ciudad Dulce</p>
+<p>Teléfono: 123 456 789</p>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+<script>
+var mapa = L.map("mapa").setView([40.4168, -3.7038], 13);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(mapa);
+var destino = L.latLng(40.4168, -3.7038);
+mapa.locate({ setView: true, maxZoom: 14 });
+mapa.on("locationfound", function(e) {
+    L.Routing.control({
+        waypoints: [
+            L.latLng(e.latitude, e.longitude),
+            destino
+        ],
+        routeWhileDragging: false,
+        show: false
+    }).addTo(mapa);
+});
+mapa.on("locationerror", function() {
+    alert("No se pudo obtener tu ubicación");
+});
+</script>
+
+</body>
+ <!-- FOOTER -->
+<footer class="footer">
+    <div class="social-icons">
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        <p>@ventadeternurines</p>
+      </div>
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+        <p>123 456 789</p>
+      </div>
+      <div class="contacto">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail">
+        <p>ventadeternurines@gmail.com</p>
+      </div>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,159 @@
+body{
+    background-color: beige;
+    font-family: "Dancing Script", cursive;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/*  ========================================================= 
+    ===================== Titulos y textos ================== 
+    ========================================================= */
+
+.title, h1, h2, h3 {
+    font-family: "Dancing Script", cursive;
+    color: #ff9ccf;
+    text-align: center;
+}
+
+.title, h1 {
+    font-size: 48px;
+    padding: 20px;
+    border: 3px solid #f8d0e0;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #fff0f6, #ffd6e8);
+    width: 95%;
+    margin: 20px auto;
+}
+
+h2 {
+    font-size: 38px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+/*  ========================================================= 
+    ===================== Navbar ============================ 
+    ========================================================= */
+
+.navbar-contenedor {
+    background: #d49cb1;
+    padding: 15px;
+    border-radius: 20px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(180, 120, 150, 0.4);
+}
+
+/* ======== Navbar animaciones ======== */
+.navbar-contenedor a {
+    text-decoration: none;
+    color: #fff7fb; 
+    background-color: #ffb6d0; 
+    padding: 10px 20px;
+    border-radius: 18px;
+    border: 2px solid #f6cddc;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+.navbar-contenedor a:hover,
+.navbar-contenedor a.activo {
+    background-color: #ffdae9;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(248, 150, 180, 0.4);
+}
+/* ======== Navbar animaciones ======== */
+
+.nav-item {
+    width: 40%;
+    padding: 10%;
+    text-decoration: none;
+    background: #f8e0ea;    
+    color: #7a4e5a;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Dancing Script", cursive;
+    border-radius: 18px;
+    border: 3px solid #f6cddc;
+    box-shadow: 0 3px 6px rgba(248, 170, 190, 0.3);
+    transition: 0.25s ease;
+}
+.nav-item:hover {
+    transform: scale(1.12);
+    background: #ffe7f2;
+    box-shadow: 0 6px 12px rgba(247, 150, 180, 0.4);
+}
+
+ /* ========================================================= 
+ ===================== Mapa ============================== 
+ ========================================================= */
+  #mapa {
+     width: 100%; 
+     height: 350px; 
+     border: 3px dotted #ff9ccf; 
+     border-radius: 20px; 
+     box-shadow: 0 6px 12px rgba(255, 150, 200, 0.35); 
+     margin-bottom: 20px; 
+    } 
+ /* Div de contacto */ 
+ .ubi{ 
+    font-family: "Dancing Script", cursive; 
+    font-size: 15px; 
+    color: #7a4e5a; 
+    background: #ffd6e8; 
+    display: inline-block; 
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    border: 3px solid #f8d0e0; 
+    margin: 10px 0; 
+    box-shadow: 0 3px 6px rgba(248, 150, 180, 0.2); 
+} 
+
+/*  ========================================================= 
+    ===================== Pie de pg ========================= 
+    ========================================================= */
+
+.footer {
+    background-color: #f8dfe9; 
+    padding: 25px 0;
+    margin-top: 40px;
+    border-radius: 25px 25px 0 0;
+    border: 3px solid #f3c7d7; 
+    box-shadow: 0 -4px 10px rgba(245, 180, 200, 0.4);
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    width: 85%;
+    margin: auto;
+}
+
+.contacto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contacto img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain; 
+    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+}
+
+.contacto p {
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    font-size: 20px;
+    color: #7a4e5a;
+}
+/* ======== Final ======== */
